@@ -1,0 +1,33 @@
+start: >
+  Hi, welcome on the telgram bot to roll dices!
+
+  This bot is meant to be to help rpg players to roll dice with many options.
+
+  To roll dices you can use the command /roll followed by the roll you want to perform.
+  For example to roll 3d6 you will write "/roll 3d6"... easy!
+
+  After the dice type you can add some bonus, like +3, -2, or even /2 or *2,
+  of course you can combine multiple bonuses.
+
+  Some options are going to be implemented, the option will follow the syntax
+  from roll20 (https://wiki.roll20.net/Dice_Reference#Rerolling_Dice).
+
+help: >
+  Type /roll followed by the dice you want to roll. For example "/roll 3d6".
+  For more advance functions use the syntax from roll20 (https://wiki.roll20.net/Dice_Reference#Rerolling_Dice)
+
+bad_format: >
+  Formattazione sbagliata. La formattazione base è e.g. "/roll 3d6+4 will"
+
+error: >
+  C'è stato un errore...
+
+infinity: >
+  BOOOOMMMMM HAI TIRATO INFINITO!
+
+roll: >
+  {} tira {}
+
+  {}
+
+  = {}
