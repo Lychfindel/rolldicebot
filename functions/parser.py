@@ -25,7 +25,7 @@ def parse_base_roll(roll, option):
         dice_num = int(dice_num)
     dice_type = int(match_roll.group(3))
     if dice_type < 1:
-        raise ValueError
+        raise ValueError()
     dice_results = [randint(1, dice_type) for n in range(dice_num)]
 
     ev_list, txt_list = evaluate_roll_options(dice_results, dice_type, option)
@@ -107,9 +107,9 @@ def get_comparison_function(option):
 
 def check_if_infinity_reroll(option, value, dice_type):
     symbol = option[1]
-    if symbol == ">" and value <= 1:
+    if symbol in [">","="]  and value <= 1:
         return True
-    elif symbol == "<" and value >= dice_type:
+    elif symbol in ["<","="] and value >= dice_type:
         return True
     return False
 

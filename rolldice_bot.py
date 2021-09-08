@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from telegram import ParseMode
 from telegram import Update
 from telegram.ext import Updater, PicklePersistence, CommandHandler, CallbackContext
+from telegram.ext.filters import Filters
 # custom functions
 from functions.logging import set_up_logging
 from functions.translations import translate, set_chat_language, get_lang
@@ -89,9 +90,9 @@ def main() -> None:
     dispatcher = updater.dispatcher
 
     # on different commands - answer in Telegram
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("help", help_command))
-    dispatcher.add_handler(CommandHandler("roll", roll))
+    dispatcher.add_handler(CommandHandler("start", start, filters=~Filters.update.edited_message))
+    dispatcher.add_handler(CommandHandler("help", help_command, filters=~Filters.update.edited_message))
+    dispatcher.add_handler(CommandHandler("roll", roll, filters=~Filters.update.edited_message))
     # Start the Bot
     updater.start_polling()
 
